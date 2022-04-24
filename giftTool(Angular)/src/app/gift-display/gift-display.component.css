@@ -1,0 +1,13 @@
+body{
+  background-color: #ffe6e8;
+}
+
+.card{
+padding: 30px;
+border-left: 4px solid #ffaebc;
+border-right: 4px solid #ffaebc;
+border-radius: 15px;
+}
+
+@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
+

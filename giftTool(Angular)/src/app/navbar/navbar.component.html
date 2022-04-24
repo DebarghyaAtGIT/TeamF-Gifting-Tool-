@@ -1,0 +1,52 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<header>
+  <div class="header-main">
+    <div class="container">
+      <a [routerLink]="['/home']" class="header-logo">
+        <img
+          src="./assets/images/logo/Grofy-logos_transparent.png"
+          alt="Grofy's logo"
+          width="100%"
+          height="150px"
+        />
+      </a>
+
+      <div class="header-search-container">
+        <input
+          type="search"
+          name="search"
+          class="search-field"
+          placeholder="Enter your product name..."
+          [(ngModel)]="searchBarContent"
+        />
+
+        <button class="search-btn" (click)="onSelect()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+
+      <div class="header-user-actions">
+        <button class="action-btn" (click)="onSelectOderHistory()">
+          <i class="bi bi-clock-history"></i>
+        </button>
+
+        <button class="action-btn" [routerLink]="['/cart']">
+
+          <i class="bi bi-cart-fill"></i>
+        </button>
+
+        <button class="action-btn" (click)="logOut()" *ngIf="isLoggedIn">
+
+          <i class="bi bi-box-arrow-right"><small style="font-style: normal; padding: 5px; font-size: 17px;">Logout</small></i>
+        </button>
+        <button class="action-btn" [routerLink]="['/login']" *ngIf="!isLoggedIn">
+
+          <i class="bi bi-box-arrow-left"><small style="font-style: normal; padding: 5px; font-size: 17px;">Login</small></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</header>

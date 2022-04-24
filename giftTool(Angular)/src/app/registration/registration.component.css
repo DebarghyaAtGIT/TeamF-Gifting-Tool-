@@ -1,0 +1,18 @@
+
+
+body, .card{
+  background-color: #fff;
+}
+
+.container a img{
+position: relative;
+bottom: 35px;
+}
+
+.card{
+  border: none;
+}
+
+button{
+  background-color: #ffaebc;
+}

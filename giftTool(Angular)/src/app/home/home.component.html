@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grofy - A Gifting Website</title>
+    <!--
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./assets/images/logo/favicon.ico" type="image/x-icon" />
+    <!--
+    - custom css link
+  -->
+    <!--
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <!--
+    - NOTIFICATION TOAST
+  -->
+    <!--
+    - HEADER
+  -->
+    <!--
+    - MAIN
+  -->
+    <main>
+      <!--
+      - BANNER
+    -->
+      <div class="banner">
+        <div class="container">
+          <div class="slider-container has-scrollbar">
+            <div class="slider-item">
+              <img src="./assets/images/x2.jpg" alt="Latest fashion sale" class="banner-img" />
+            </div>
+            <div class="slider-item">
+              <img src="./assets/images/x1.jpg" alt="modern sunglasses" class="banner-img" />
+            </div>
+            <div class="slider-item">
+              <img src="./assets/images/banner-3.jpg" alt="new fashion summer sale" class="banner-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      - CATEGORY
+    -->
+      <!--
+      - PRODUCT
+    -->
+      <div class="product-container">
+        <div class="container">
+          <!--
+          - SIDEBAR
+        -->
+          <div class="sidedata has-scrollbar" data-mobile-menu>
+            <div class="category">
+              <mat-accordion>
+                <h3 style="margin-bottom: 20px; font-weight: 400; font-size: 1.2em;">Categories</h3>
+                <mat-expansion-panel hideToggle (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false" >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Cups </mat-panel-title>
+                    <div class="mat-desc">
+                      <mat-panel-description>
+                        {{panelOpenState1 ? '-' : '+'}}
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <ul>
+                    <li>
+                      <a (click)="onSelect(item.giftId)" *ngFor="let item of category1" style="color: blueviolet;cursor:pointer;">{{item.name}}</a>
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Flowers </mat-panel-title>
+                    <div class="mat-desc">
+                      <mat-panel-description>
+                        {{panelOpenState2 ? '-' : '+'}}
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <ul>
+                    <li>
+                      <a (click)="onSelect(item.giftId)" *ngFor="let item of category2" style="color: blueviolet;cursor:pointer;">{{item.name}}</a>
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle (opened)="panelOpenState3 = true" (closed)="panelOpenState3 = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Accessories </mat-panel-title>
+                    <div class="mat-desc">
+                      <mat-panel-description>
+                        {{panelOpenState3 ? '-' : '+'}}
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <ul>
+                    <li>
+                      <a (click)="onSelect(item.giftId)" *ngFor="let item of category3" style="color: blueviolet;cursor:pointer;">{{item.name}}</a>
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle (opened)="panelOpenState4 = true" (closed)="panelOpenState4 = false">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Watches </mat-panel-title>
+                    <div class="mat-desc">
+                      <mat-panel-description>
+                        {{panelOpenState4 ? '-' : '+'}}
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <ul>
+                    <li>
+                      <a (click)="onSelect(item.giftId)" *ngFor="let item of category4" style="color: blueviolet;cursor:pointer;">{{item.name}}</a>
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class=" sidebar product-showcase">
+              <h3 class="showcase-heading">Best Sellers</h3>
+              <div class="showcase-wrapper">
+                <div class="showcase-container">
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img src="./assets/images/products/1.jpg" alt="baby fabric shoes" width="75" height="75" class="showcase-img" />
+                    </a>
+                    <div class="showcase-content">
+                      <a href="#">
+                        <h4 class="showcase-title">baby fabric shoes</h4>
+                      </a>
+                      <div class="showcase-rating"></div>
+                      <div class="price-box">
+                        <del>$5.00</del>
+                        <p class="price">$4.00</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="showcase">
+                    <a href="#" class="showcase-img-box">
+                      <img src="./assets/images/products/2.jpg" alt="men's hoodies t-shirt" class="showcase-img" width="75" height="75" />
+                    </a>
+                    <div class="showcase-content">
+                      <a href="#">
+                        <h4 class="showcase-title">men's hoodies t-shirt</h4>
+                      </a>
+                      <div class="showcase-rating"></div>
+                      <div class="price-box">
+                        <del>$17.00</del>
+                        <p class="price">$7.00</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product-box">
+            <!--
+            - PRODUCT GRID
+          -->
+            <div class="product-main">
+              <h2 class="title">Recommended Products</h2>
+              <div class="product-grid">
+                <div class="showcase" *ngFor="let item of recomendedGifts" (click)="onSelect(item.pkGiftId)">
+                  <div class="showcase-banner">
+                    <img [src]="imgUrl + item.image" alt="Pure Garment Dyed Cotton Shirt" class="product-img default" width="300" />
+                    <img [src]="imgUrl + item.image" alt="Pure Garment Dyed Cotton Shirt" class="product-img hover" width="300" />
+                  </div>
+                  <div class="showcase-content">
+                    <h3>
+                      <a href="#" class="showcase-title">{{item.giftName}}</a>
+                    </h3>
+                    <div class="price-box">
+                      <p class="price">{{item.giftPrice|currency:'INR'}}</p>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      - TESTIMONIALS, CTA & SERVICE
+    -->
+      <div>
+        <div class="container">
+          <div class="testimonials-box">
+            <!--
+            - TESTIMONIALS
+          -->
+            <div class="testimonial">
+              <h2 class="title">testimonial</h2>
+              <div class="testimonial-card">
+                <img src="./assets/images/testimonial-1.jpg" alt="alan doe" class="testimonial-banner" width="80" height="80" />
+                <p class="testimonial-name">Alan Doe</p>
+                <p class="testimonial-title">CEO & Founder Invision</p>
+                <img src="./assets/images/icons/quotes.svg" alt="quotation" class="quotation-img" width="26" />
+                <p class="testimonial-desc"> Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor dolor sit amet. </p>
+              </div>
+            </div>
+            <!--
+            - CTA
+          -->
+            <div class="cta-container">
+              <img src="./assets/images/cta-banner.jpg" alt="summer collection" class="cta-banner" />
+            </div>
+            <!--
+            - SERVICE
+          -->
+            <div class="service">
+              <h2 class="title">Our Services</h2>
+              <div class="service-container">
+                <a href="#" class="service-item">
+                  <div class="service-content">
+                    <h3 class="service-title">Worldwide Delivery</h3>
+                    <p class="service-desc">For Order Over $100</p>
+                  </div>
+                </a>
+                <a href="#" class="service-item">
+                  <div class="service-content">
+                    <h3 class="service-title">Next Day delivery</h3>
+                    <p class="service-desc">UK Orders Only</p>
+                  </div>
+                </a>
+                <a href="#" class="service-item">
+                  <div class="service-content">
+                    <h3 class="service-title">Best Online Support</h3>
+                    <p class="service-desc">Hours: 8AM - 11PM</p>
+                  </div>
+                </a>
+                <a href="#" class="service-item">
+                  <div class="service-content">
+                    <h3 class="service-title">Return Policy</h3>
+                    <p class="service-desc">Easy & Free Return</p>
+                  </div>
+                </a>
+                <a href="#" class="service-item">
+                  <div class="service-content">
+                    <h3 class="service-title">30% money back</h3>
+                    <p class="service-desc">For Order Over $100</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      - BLOG
+    -->
+      <div class="blog">
+        <div class="container">
+          <div class="blog-container has-scrollbar">
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/1x.png" alt="Clothes Retail KPIs 2021 Guide for Clothes Executives" width="300" class="blog-banner" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Front-End</a>
+                <h3>
+                  <a href="#" class="blog-title">Unmil Mukhopadhyay </a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/p2-modified.png" alt="Subhrajyoti Payra" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Front-End</a>
+                <h3>
+                  <a href="#" class="blog-title">Subhrajyoti Payra</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/p4-modified.png" alt="Stutee Mishra" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Front-End</a>
+                <h3>
+                  <a href="#" class="blog-title">Stutee Mishra</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/5x-modified.png" alt="Subhrajyoti Payra" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Front-End</a>
+                <h3>
+                  <a href="#" class="blog-title">Anjani Singh Gautam</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/6x-modified.png" alt="Anurag Das" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Back-End(web api)</a>
+                <h3>
+                  <a href="#" class="blog-title">Anurag Das</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/7x-modified.png" alt="Debarghya Chowdhury" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Back-End(web api)</a>
+                <h3>
+                  <a href="#" class="blog-title">Debarghya Chowdhury</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/8x-modified.png" alt="Kamakshee Goswami" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Back-End(wep api)</a>
+                <h3>
+                  <a href="#" class="blog-title">Kamakshee Goswami</a>
+                </h3>
+              </div>
+            </div>
+            <div class="blog-card">
+              <a href="#">
+                <img src="./assets/images/9x-modified.png" alt="Tipesh Taunk" class="blog-banner" width="300" />
+              </a>
+              <div class="blog-content">
+                <a href="#" class="blog-category">Back-End(web api)</a>
+                <h3>
+                  <a href="#" class="blog-title">Tipesh Taunk</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+    - FOOTER
+  -->
+      <div class="footer-bottom">
+        <div class="container">
+          <p class="copyright"> Copyright &copy; <a href="#">Grofy</a> all rights reserved. </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+body{
+  background-color: #ffe6e8;
+}
+
+.container{
+  background-color: #fff;
+  border-radius: 15px;
+  border-left: 4px solid #ffaebc;
+  border-right: 4px solid #ffaebc;
+  padding: 30px;
+}
+

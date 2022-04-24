@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Jekyll v3.8.5" />
+    <title>Checkout example · Bootstrap</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/" />
+    <!-- Bootstrap core CSS -->
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <!-- <link href="form-validation.css" rel="stylesheet" /> -->
+  </head>
+  <body style="margin-top:5rem;">
+    <div class="container">
+       <div class="row">
+        <div class="col-md-5 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted"><h2>YOUR CART</h2></span>
+            <span class="badge badge-secondary badge-pill">{{cartlength}}</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li *ngFor="let item of items" class="list-group-item d-flex justify-content-between lh-condensed">
+              <div >
+                <h3 class="my-0">{{item.giftName}}</h3>
+              </div>
+              <span class="text-muted">{{item.price|currency:'INR'}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-7 order-md-1">
+          <h2 class="mb-3">RECIPIENT'S DETAILS</h2>
+          <form [formGroup]="receipientForm" onSubmit="event.preventDefault()" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+              <label for="email" style="padding:5px;">Receipient's Name <span class="text-muted"></span>
+              </label>
+              <input type="text" class="form-control" placeholder="Enter receipient's name" name="recipientName" formControlName="name" [(ngModel)]="receipientForm.value.name">
+              <div>
+                <span class="error" *ngIf="receipientForm.controls['name'].touched && receipientForm.controls['name'].invalid && receipientForm.controls['name'].errors?.['required']"> *Name is required</span>
+                <span class="error" *ngIf="receipientForm.controls['name'].touched && receipientForm.controls['name'].invalid && receipientForm.controls['name'].errors?.['pattern']"> *Only Alphabets Allowed</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="username" style="padding:5px;">Email</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="email" placeholder="Enter receipient's email" name="recipientEmail" formControlName="email" [(ngModel)]="receipientForm.value.email">
+                <div style="width: 100%">
+                    <span class="error" *ngIf="receipientForm.controls['email'].touched && receipientForm.controls['email'].invalid && receipientForm.controls['email'].errors?.['required']"> *Email is required</span>
+                    <span class="error" *ngIf="receipientForm.controls['email'].touched && receipientForm.controls['email'].invalid && receipientForm.controls['email'].errors?.['pattern']"> *Email is not valid</span>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phoneno" style="padding:5px;">Contact Number <span class="text-muted"></span>
+              </label>
+              <input type="text" class="form-control" id="contactnumber" placeholder="Enter receipient's contact number" name="phoneno" formControlName="phoneno"  [(ngModel)]="receipientForm.value.phoneno"/>
+              <div>
+                <span class="error" *ngIf="receipientForm.controls['phoneno'].touched && receipientForm.controls['phoneno'].invalid && receipientForm.controls['phoneno'].errors?.['required']"> *Contact details are required</span>
+                <span class="error" *ngIf="receipientForm.controls['phoneno'].dirty && receipientForm.controls['phoneno'].invalid && receipientForm.controls['phoneno'].errors?.['minlength']"> *Invalid Contact Number</span>
+                <span class="error" *ngIf="receipientForm.controls['phoneno'].dirty && receipientForm.controls['phoneno'].invalid && receipientForm.controls['phoneno'].errors?.['maxlength']"> *Invalid Contact Number</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="address" style="padding:5px;">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="Enter Your Address" name="address" formControlName="address" [(ngModel)]="receipientForm.value.address">
+              <div>
+                <span class="error" *ngIf="receipientForm.controls['address'].touched && receipientForm.controls['address'].invalid && receipientForm.controls['address'].errors?.['required']"> *Address is required</span>
+              </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="textAreaExample6" style="padding:5px;">Your Special Message</label>
+                    <textarea class="form-control" id="textAreaExample6" rows="3" name="message" formControlName="message" [(ngModel)]="receipientForm.value.message"></textarea>
+                </div>
+                <div>
+                    <span class="error" *ngIf="receipientForm.controls['message'].touched && receipientForm.controls['message'].invalid && receipientForm.controls['message'].errors?.['required']"> *We need your special message to deliver</span>
+                </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-3 mb-3">
+                    <label for="zip" style="padding:5px;">Country</label>
+                    <input type="text" class="form-control" id="zip" value={{showcountry}}  disabled>
+
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip" style="padding:5px;">State</label>
+                <input type="text" class="form-control" id="zip" value={{showstate}} disabled>
+
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip" style="padding:5px;">Pincode</label>
+                <input type="text" class="form-control" id="zip" value={{showpincode}} disabled>
+
+              </div>
+            </div>
+            <div class="d-block my-3"></div>
+            <div class="row">
+              <hr class="mb-4" />
+              <input style="background-color: #ffaebc;" type="submit" class="btn btn-block" value="Continue to checkout">
+            </div>
+            </form>
+        </div>
+
+    </div>
+    </div>
+  </body>
+
+</html>

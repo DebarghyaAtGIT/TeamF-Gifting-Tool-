@@ -1,0 +1,14 @@
+
+.card{
+  border-radius: 15px;
+  border-bottom: 4px solid #ffaebc;
+}
+
+.bg-image{
+  width: 200px ;
+  height: 250px ;
+}
+
+.gradient-custom{
+  background-color: #ffe6e8;
+}

@@ -1,0 +1,110 @@
+
+
+body{
+  background-color: #ffe6e8;
+}
+
+.btn{
+width: 100%;
+}
+
+.container{
+  margin-top: 100px !important;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  border-left: 4px solid #ffaebc;
+  border-right: 4px solid #ffaebc;
+}
+
+.card {
+  color: #000;
+  width: 410px !important
+}
+
+.mrow {
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+
+img {
+  margin-right: 10px
+}
+
+.main span:hover {
+  text-decoration: underline;
+  cursor: pointer
+}
+
+.mrow img:hover {
+  border-bottom: 1px solid #000;
+  cursor: pointer
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 30px
+}
+
+h5 {
+  padding-top: 3px
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 6px;
+  padding: 7px 0 0 10px;
+  transition: all 200ms;
+  opacity: 0.5;
+  color: #000 !important;
+  font-size: 75%
+}
+
+.form-control:focus+.form-control-placeholder,
+.form-control:valid+.form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -100%, 0);
+  opacity: 1;
+  top: 10px
+}
+
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000 !important;
+  border-radius: 0;
+  outline: 0
+}
+
+.form-control:focus,
+.form-control:after {
+  outline-width: 0;
+  border-bottom: 1px solid #000 !important;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  color: #dae0e5;
+  letter-spacing: 1px
+}
+
+hr {
+  color: #0000004f;
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+.add td {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bolder
+}
+
+.content {
+  font-size: 15px
+}

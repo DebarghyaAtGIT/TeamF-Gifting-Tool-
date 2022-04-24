@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  </head>
+  <app-navbar></app-navbar>
+  <body>
+    <div class="whole container" >
+      <div class="row">
+        <div class="col-lg-5 left-side-product-box">
+          <img [src]="imgUrl + giftImage" class=" p-3">
+        </div>
+        <div class="col-lg-7">
+          <div class="right-side-pro-detail">
+            <form [formGroup]="addressForm" onSubmit="event.preventDefault()" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-lg-12">
+                  <span>Category Name: </span><span>{{productCategory}}</span>
+                  <p class="m-0 p-0" style="font-size: 25px;">{{productName}}</p>
+                </div>
+                <div class="col-lg-12">
+                  <p class="m-0 p-0 price-pro my-2">{{productCost|currency:'INR'}}</p>
+                </div>
+                <div class="container">
+                  <div class="col-lg-12" style="border: 1px solid #000">
+
+                    <input type="text" class="form-control" style="padding: 12px" value="" formControlName='pincode' placeholder="Pincode/Location" [(ngModel)]="addressForm.value.pincode" >
+
+                  </div>
+                  <p *ngIf="addressForm.controls['pincode'].dirty && addressForm.controls['pincode'].value != '' && addressForm.controls['pincode'].errors?.['pattern']">Invalid Pin Number</p>
+                  <p *ngIf="pinCodeNotFound">We do not deliver in your area.</p>
+                  <div class=" col-lg-12 pt-2">
+                    <mat-accordion>
+                      <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title> Product Description </mat-panel-title>
+                          <div class="mat-desc">
+                            <mat-panel-description>
+                              {{panelOpenState ? '-' : '+'}}
+                            </mat-panel-description>
+                          </div>
+                        </mat-expansion-panel-header>
+                        <p style="font-size: 17px;">Your Girlfriend will absolutely love this necklace. Think of this as an investment on your partner. A deer for our dear. Bad pun, we know! But the amazing YOU that's always calm and gentle, with a loving heart that accepts everyone, deserves nothing but the best. This gorgeous Dear Heart Pendant is just the perfect complement for your unmatched vibe.</p>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel hideToggle (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title> Shipping Details </mat-panel-title>
+                          <div class="mat-desc">
+                            <mat-panel-description>
+                              {{panelOpenState2 ? '-' : '+'}}
+                            </mat-panel-description>
+                          </div>
+                        </mat-expansion-panel-header>
+                        <ol style="font-size: 17px;">
+                          <li>Free express shipping </li>
+                          <li> 30 days return policy </li>
+                          <li>6 month plating warranty</li>
+                        </ol>
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                  </div>
+                </div>
+                <div class="col-lg-12 mt-3">
+                  <div class="row">
+                    <div class="col-lg-12 pb-2" (click)="addCart()">
+                      <a  class="btn w-100" style="border: 2px solid #ffaebc">Add To Cart</a>
+                    </div>
+                    <div class="col-lg-12">
+                      <input type="submit" value = "Buy Now" class="btn w-100" style="background-color: #ffaebc;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="text-center container py-5">
+        <h2 class="mt-4 mb-5"><strong>More Products</strong></h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let item of moreproducts">
+            <div class="card">
+              <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                data-mdb-ripple-color="light">
+                <img [src] = 'imgUrl + item.giftImage'
+                  class="w-100" />
+                <a>
+                  <div class="mask">
+                    <div class="d-flex justify-content-start align-items-end h-100">
+                      <a class="p-3 mx-auto" [href]="['/gifts/details/'+ item.giftId]"><span class="btn" style=" padding: 5px; background-color: #ffaebc;">View Details</span></a>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="card-body">
+
+                <a  class="text-reset" style="text-decoration: none;">
+                  <p>{{item.giftName}}</p>
+                </a>
+                <h4 class="mb-3">{{item.price|currency:'INR'}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
