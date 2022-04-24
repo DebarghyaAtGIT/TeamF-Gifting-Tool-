@@ -9066,11 +9066,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anura\\Documents\\Training\\C#\\GiftingTool\\GiftingTool.csproj",
+      "projectUniqueName": "C:\\Users\\anura\\Desktop\\tool\\GiftingTool(Web Api)\\GiftingTool.csproj",
       "projectName": "GiftingTool",
-      "projectPath": "C:\\Users\\anura\\Documents\\Training\\C#\\GiftingTool\\GiftingTool.csproj",
+      "projectPath": "C:\\Users\\anura\\Desktop\\tool\\GiftingTool(Web Api)\\GiftingTool.csproj",
       "packagesPath": "C:\\Users\\anura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anura\\Documents\\Training\\C#\\GiftingTool\\obj\\",
+      "outputPath": "C:\\Users\\anura\\Desktop\\tool\\GiftingTool(Web Api)\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anura\\AppData\\Roaming\\NuGet\\NuGet.Config",
