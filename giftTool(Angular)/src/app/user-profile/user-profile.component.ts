@@ -73,9 +73,18 @@ console.log(order)
   }
 
  ngOnInit(): void {
+  if(!localStorage.getItem('loggedUserEmail') && !localStorage.getItem('loggedUserId')) {
+    this._router.navigate(['home']);
+    this.openSnackBar("You are not logged in", "OK")
+  }
+  else{
     this.route.paramMap.subscribe(params => {
       this.getUser(String(params.get("email")));
     });
+  }
+
+
+
   }
 
 }

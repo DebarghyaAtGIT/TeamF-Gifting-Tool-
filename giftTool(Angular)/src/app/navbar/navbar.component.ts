@@ -64,7 +64,9 @@ export class NavbarComponent implements OnInit {
       )
       localStorage.removeItem("loggedUserId");
       localStorage.removeItem("loggedUserEmail");
+      localStorage.removeItem("username");
       alert("You are logged out");
+      window.location.reload();
       this.router.navigate(["home"]);
     }
   }
