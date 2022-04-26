@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,15 +22,16 @@ namespace GiftingTool.Models
             return 0;
         }
 
+    //Buy multiple products via cart
         public int multipleOrders(List<OrderDetails> createData)
         {
-            int i = 0;
-            try
-            {
+      try
+      {
                 if (createData != null)
                 {
                     _dbcontext.OrderDetails.AddRange(createData);
                     _dbcontext.SaveChanges();
+                    
                     i = 1;
                 }
 
@@ -44,6 +45,7 @@ namespace GiftingTool.Models
             return i;
         }
 
+    //Cancel Order after placing
         public int Delete(int id)
         {
             int i = 0;

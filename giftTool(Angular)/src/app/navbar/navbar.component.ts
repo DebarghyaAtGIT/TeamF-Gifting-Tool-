@@ -17,6 +17,8 @@ export class NavbarComponent implements OnInit {
   isLoggedIn:boolean = false;
   constructor(private _giftservice:GiftdisplayService,private router:Router,private _userService:GiftToolService,private _snackBar:MatSnackBar) {}
 
+
+  //Search for products via Search Bar
   public onSelect():void {
 
     this._giftservice.searchResult(this.searchBarContent).subscribe( data =>{
@@ -24,6 +26,7 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  //Store search result in Session Storage
   public processData(data:any[]) {
 
     var searchedData = JSON.stringify(data);
@@ -34,6 +37,7 @@ export class NavbarComponent implements OnInit {
        window.location.reload();
   }
 
+  //Show users' order history only if the user is logged in
   public onSelectOderHistory():void {
     if(localStorage.getItem('loggedUserEmail')) {
       this.router.navigate(['user',localStorage.getItem('loggedUserEmail')]);
@@ -52,6 +56,8 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+
+  //Logging out the user and removing all users' data from Local Storage
   public logOut(): void{
     var id = Number(localStorage.getItem("loggedUserId"));
 

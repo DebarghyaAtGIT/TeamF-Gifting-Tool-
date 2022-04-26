@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   recomendedGifts:any[] = [];
   constructor(private _giftservice:GiftdisplayService,private router:Router) { }
 
+
+  //Categories
   ngOnInit(): void {
     this._giftservice.searchResult( "cup").subscribe( data =>{
 
@@ -50,6 +52,8 @@ export class HomeComponent implements OnInit {
     alert("Home Page");
   }
 
+
+  //Recommended products based on users' last purchases
   public storingRecomendedGifts(data:any[]):void {
 
       var gifts = JSON.parse(JSON.stringify(data));
@@ -65,7 +69,7 @@ export class HomeComponent implements OnInit {
     }
 
 
-
+//redirect to gift details page
   public onSelect(id:number):void {
 
       this.router.navigate(['gifts/details',id]);

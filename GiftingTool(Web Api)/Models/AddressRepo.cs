@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,6 +28,8 @@ namespace GiftingTool.Models
             return 0;
         }
 
+
+    //Get All the address stored in DB
         public List<Address> GetAll()
         {
             try
@@ -42,6 +44,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //Get Address By ID
         public Address GetById(string data)
         {
             try

@@ -32,6 +32,8 @@ namespace GiftingTool.Models
             return _dbcontext.GiftCategory.ToList<GiftCategory>();
         }
 
+
+       //Get Search Results
         public Object searchByCategory(string categoryName)
         {
             try
@@ -60,6 +62,8 @@ namespace GiftingTool.Models
             }
         }
 
+
+    //Get Recommended products based on users' previous placed orders
         public List<Gifts> giftsRecomendation(int userid)
         {
             try
@@ -109,6 +113,7 @@ namespace GiftingTool.Models
             throw new NotImplementedException();
         }
 
+    //If user haven't made any purchases then this method will show one products from each category
     public List<Object> showRandomResult()
     {
       try

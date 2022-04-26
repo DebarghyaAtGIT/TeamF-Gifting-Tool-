@@ -8,6 +8,8 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class OrderDetailsService {
   webapiurl:string = "https://localhost:44324/api/OrderDetails";
   constructor(private _client:HttpClient) { }
+
+  //Post Order details
   public addEntry(user:any):Observable<any> {
     const headers = { 'content-type': 'application/json'};
     var body:string = JSON.stringify(user);
@@ -17,6 +19,7 @@ export class OrderDetailsService {
     );
   }
 
+  //Error Handling
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

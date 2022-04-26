@@ -409,3 +409,11 @@ C:\Users\anura\Documents\Training\C#\GiftingTool\obj\Debug\netcoreapp3.1\Gifting
 C:\Users\anura\Documents\Training\C#\GiftingTool\obj\Debug\netcoreapp3.1\GiftingTool.dll
 C:\Users\anura\Documents\Training\C#\GiftingTool\obj\Debug\netcoreapp3.1\GiftingTool.pdb
 C:\Users\anura\Documents\Training\C#\GiftingTool\obj\Debug\netcoreapp3.1\GiftingTool.genruntimeconfig.cache
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.csproj.AssemblyReference.cache
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.AssemblyInfoInputs.cache
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.AssemblyInfo.cs
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.csproj.CoreCompileInputs.cache
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.dll
+C:\Users\anura\Documents\Training\EYCapstone\TeamF(Gifting Tool)\GiftingTool(Web Api)\obj\Debug\netcoreapp3.1\GiftingTool.pdb

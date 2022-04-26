@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +43,7 @@ namespace GiftingTool.Controllers
             return temp.GetGiftsById(id);
         }
 
+        
         [HttpGet("search/{giftname}")]
         public List<Gifts> search(string giftname)
         {

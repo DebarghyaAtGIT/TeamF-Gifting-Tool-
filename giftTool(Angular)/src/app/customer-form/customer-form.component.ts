@@ -45,6 +45,7 @@ export class CustomerFormComponent implements OnInit {
     this.cartlength = this.items.length;
   }
 
+  //Storing customer details on Session storage
   public onSubmit():void {
 
     if(this.receipientForm.valid) {

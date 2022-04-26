@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -41,6 +41,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //Get gifts based on ID
         public Gifts GetById(string data)
         {
             try
@@ -55,6 +56,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //Get products' recommendtion based on a particular product
         public List<Object> otherProducts(int categoryid,int giftid)
         {
             try
@@ -82,6 +84,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //Get gifts according to category 
         public List<Object> GetGiftsById(int id)
         {
             try
@@ -118,6 +121,7 @@ namespace GiftingTool.Models
             return 0;
         }
 
+      
         public List<Gifts> serachByGift(string giftName)
         {
             try

@@ -24,6 +24,8 @@ export class CartComponent implements OnInit {
       pincode: new FormControl("", [Validators.required,Validators.pattern("^[0-9]*$")])
     });
   }
+
+  //On Page Load
   ngOnInit(): void {
     if(!localStorage.getItem('loggedUserId')) {
       this.router.navigate(['home']);
@@ -44,6 +46,7 @@ export class CartComponent implements OnInit {
     }
   }
 
+  //Calculate Total Cost of Cart
   public calculateTotalCost():void {
     this.totalCost = 0;
     this.items.forEach((element:any) => {
@@ -52,16 +55,20 @@ export class CartComponent implements OnInit {
     sessionStorage.setItem('totalCost',String(this.totalCost));
   }
 
+  //Alert for Errors/Success Message
   public openSnackBar(message: string, action: string):void {
     this._snackBar.open(message, action, {
       duration: 5000,
     });
   }
 
+  //redirect to gift details page
   public onSelect(id:number):void {
     this.router.navigate(['gifts/details',id]);
   }
 
+
+  //Validating pincode
   public onSubmit():void {
 
     if(!this.isCartEmpty) {
@@ -76,16 +83,14 @@ export class CartComponent implements OnInit {
       }
     }
     else {
-
-
         this.openSnackBar('Your Cart is Empty',"OK")
 
     }
   }
 
+
+  //On clicking Add to cart button it will check if the product is deliverable to entered pincode or not
   public storePincodeFunction(data:any[]):void {
-
-
 
       var storePincode = JSON.parse(JSON.stringify(data));
       if(data == null) {
@@ -113,6 +118,7 @@ export class CartComponent implements OnInit {
 
   }
 
+  //Cart quantity decrease
   public onDecrement(giftID:number):void {
     var item = this.items.find(x=>x.giftId == giftID);
     let index = this.items.indexOf(item);
@@ -148,6 +154,7 @@ export class CartComponent implements OnInit {
     }
   }
 
+    //Cart quantity increase
   public onIncrement(giftID:number):void {
     var item = this.items.find(x=>x.giftId == giftID);
     let index = this.items.indexOf(item);
@@ -178,6 +185,7 @@ export class CartComponent implements OnInit {
     }
   }
 
+  //Remove from cart
   public removeItemFromCart(giftID:number):void {
      var itemList:any[] = JSON.parse(localStorage.getItem('gifts')||"");
      var element = itemList.find(x=>(x.giftId == giftID && x.userId == Number(localStorage.getItem('loggedUserId'))));

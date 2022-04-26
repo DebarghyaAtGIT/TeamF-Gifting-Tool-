@@ -34,6 +34,7 @@ export class GiftDisplayComponent implements OnInit {
       this.array = JSON.parse(String(window.sessionStorage.getItem('searchedResult')));
     }
 
+    //Redirect to gift details page
   public onSelect(giftid:any):void {
     this.router.navigate(['gifts/details',Number(giftid)]);
   }
@@ -44,6 +45,7 @@ export class GiftDisplayComponent implements OnInit {
     });
   }
 
+  //Add items to cart
   public addCart(giftid:any):void {
     this.selectedGift = this.array.filter(x=>x.giftId == Number(giftid));
     if (localStorage.getItem('loggedUserId')) {

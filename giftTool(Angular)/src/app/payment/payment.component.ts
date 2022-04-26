@@ -44,6 +44,8 @@ export class PaymentComponent implements OnInit {
 
   }
 
+
+  //Place order
   public placeOrder(): void{
     if(this.paymentForm.valid) {
       if(confirm("Payment Processsing....")) {
@@ -64,6 +66,8 @@ export class PaymentComponent implements OnInit {
 
   }
 
+
+  //Adding order details to data base and removing users' address details from Session storage
   public addOrderDetails(data:any): void{
     var newdata = JSON.parse(JSON.stringify(data));
     var orderid = Number(newdata.pkOrderId);

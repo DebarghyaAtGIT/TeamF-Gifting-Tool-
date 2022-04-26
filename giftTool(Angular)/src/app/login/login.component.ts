@@ -27,11 +27,12 @@ export class LoginComponent implements OnInit {
     // auth: new FormControl()
   })
 
+
+  //Login User
   authUser(): void{
     const data = {
       email: this.loginForm.controls["email"].value,
-      password: this.loginForm.controls["pass"].value,
-      // isAuth: true
+      password: this.loginForm.controls["pass"].value
     }
     this._userService.getLoggedUser(data).subscribe(res => {
       this.processData(res);
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  //Storing user details in Local Storage
   public processData(data:any):void {
     var res = JSON.parse(JSON.stringify(data));
     console.log(res);

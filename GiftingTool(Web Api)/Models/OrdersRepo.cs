@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +17,8 @@ namespace GiftingTool.Models
         {
             this._dbcontext = dbcontext;
         }
+
+    //Buy single order via Buy Now
         public int Create(Orders createData)
         {
             int i = 0;
@@ -37,6 +39,7 @@ namespace GiftingTool.Models
             return i;
         }
 
+    //Cancel Orderafter placing
         public int Delete(int id)
         {
             int i = 0;
@@ -58,6 +61,7 @@ namespace GiftingTool.Models
             return i;
         }
 
+    //Get all order placed
         public List<Orders> GetAll()
         {
             try
@@ -71,6 +75,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //get recent orders' ID
         public Orders GetById(string data)
         {
             try
@@ -88,6 +93,7 @@ namespace GiftingTool.Models
             }
         }
 
+    //Get orders placed by a particular user by its id
         public Object orderHistory(int id)
         {
             try

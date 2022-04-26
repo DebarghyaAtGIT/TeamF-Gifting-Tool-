@@ -10,12 +10,14 @@ export class AddressService {
   webapiurl:string = "https://localhost:44324/api/Address"
   constructor(private _client:HttpClient) { }
 
+  //Getting address details via pincode
   public get(pincode:string):Observable<any[]> {
     return this._client.get<any[]>(this.webapiurl + "/" +pincode).pipe(
       catchError(this.handleError)
     );
   }
 
+  //Handle Error
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

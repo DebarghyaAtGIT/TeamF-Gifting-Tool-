@@ -67,12 +67,15 @@ export class GiftDetailsComponent implements OnInit {
 
   }
 
+//Alert
 public openSnackBar(message: string, action: string):void {
   this._snackBar.open(message, action, {
     duration: 5000,
   });
 }
 
+
+//Validating Pincode
   public onSubmit():void {
     if(localStorage.getItem('loggedUserId')) {
       if(this.addressForm.valid) {
@@ -91,6 +94,7 @@ public openSnackBar(message: string, action: string):void {
   }
 
 
+  //Checking if given pincode is deliverable or not
   public storePincodeFunction(data:any[]):void {
 
       this.selectedGift = JSON.parse(Object(sessionStorage.getItem('GiftWithSpecificId')));
@@ -124,7 +128,7 @@ public openSnackBar(message: string, action: string):void {
   }
 
 
-
+  //Add items to cart only iif user is logged in
   public addCart():void {
 
     this.selectedGift = JSON.parse(Object(sessionStorage.getItem('GiftWithSpecificId')));
