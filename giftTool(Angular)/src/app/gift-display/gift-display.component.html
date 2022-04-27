@@ -57,7 +57,11 @@
                   Your Girlfriend will absolutely love this necklace. Think of this as an investment on your partner. A deer for our dear. Bad pun, we know! But the amazing YOU that's always calm and gentle, with a
                   loving heart that accepts everyone, deserves nothing but the best.
                   This gorgeous Dear Heart Pendant is just the perfect complement for your unmatched vibe.                </p>
-              </div>
+                  <div class="d-flex flex-row bd-highlight mb-3" *ngIf="item.quantity<30">
+                    <div class="p-2 bd-highlight" style="border:1px solid red;margin-top:20px; border-radius:10px; padding:15px; color:lightcoral;">OUT OF STOCK</div>
+                  </div>
+                </div>
+
               <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                 <div class="d-flex flex-row align-items-center mb-1">
                   <h3 class="mb-1 me-1">{{item.price|currency:'INR'}}</h3>
