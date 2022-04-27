@@ -46,6 +46,11 @@
                   <!-- Data -->
                   <strong>{{item.price|currency:'INR'}}</strong>
 
+                  <div class="d-flex flex-row bd-highlight mb-3" *ngIf="item.outofStock">
+                    <div class="p-2 bd-highlight" style="border:1px solid red;border-radius:10px;margin-top: 15px; padding:15px; color:lightcoral;">OUT OF STOCK</div>
+                  </div>
+
+
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
@@ -53,19 +58,19 @@
                   <h3 for="form1" style="margin-left: 2rem;">Quantity</h3>
                   <div class="d-flex mb-4" style="max-width: 300px;margin-left:0rem;">
 
-                    <i class="bi bi-dash-circle-dotted" style="padding:8px; color: #ffaebc; cursor: pointer;" (click)="onDecrement(item.giftId)"></i>
+                    <i class="bi bi-dash-circle-dotted" style="padding:8px; color: palevioletred; cursor: pointer;" (click)="onDecrement(item.giftId)"></i>
                     <div class="form-outline">
 
                       <input id="form1" min="0" name="quantity"  type="number" class="form-control" [(ngModel)]="item.quantityOfGifts"  disabled/>
 
                     </div>
-                    <i class="bi bi-plus-circle-dotted" style="padding:8px;color: #ffaebc; cursor: pointer;" (click)="onIncrement(item.giftId)"></i>
+                    <i class="bi bi-plus-circle-dotted" style="padding:8px;color: palevioletred; cursor: pointer;" (click)="onIncrement(item.giftId)"></i>
                   </div>
                   <!-- Quantity -->
 
                   <!-- Price -->
                   <p class="text-start text-md-center">
-                    <button type="button" class="btn" style=" width: 100%; background-color: #ffaebc;" (click)="removeItemFromCart(item.giftId)"><i class="bi bi-trash3-fill" style="font-size: 18px;color: #eee;"></i></button>
+                    <button type="button" class="btn" style="width:75% ; background-color:palevioletred;" (click)="removeItemFromCart(item.giftId)"><i class="bi bi-trash3-fill" style="font-size: 18px;color: #eee;"></i></button>
                   </p>
                   <!-- Price -->
 
