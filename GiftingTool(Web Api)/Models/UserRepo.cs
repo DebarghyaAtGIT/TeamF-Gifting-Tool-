@@ -17,6 +17,8 @@ namespace GiftingTool.Models
         {
             _dbcontext = context;
         }
+        
+//Register user        
         public int Create(Users createData)
         {
             int i = 0;
@@ -42,6 +44,7 @@ namespace GiftingTool.Models
             return 0;
         }
 
+//Get all users' data
         public List<Users> GetAll()
         {
             try
@@ -54,6 +57,7 @@ namespace GiftingTool.Models
             }
         }
 
+//Get user data by their email
         public Users GetById(string data)
         {
             try
@@ -72,6 +76,7 @@ namespace GiftingTool.Models
             return 0;
         }
 
+//Change Users' password
         public int UpdatePassword(int id , string newPassword)
         {
             int i = 0;
@@ -93,6 +98,7 @@ namespace GiftingTool.Models
             return i;
         }
 
+//Update isOnline to 0 or True
         public string AuthTrue(int id)
         {
             try
@@ -117,6 +123,7 @@ namespace GiftingTool.Models
             }
         }
 
+//Update isOnline to 0 or False
         public string AuthFalse(int id)
         {
             try
