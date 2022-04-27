@@ -52,6 +52,14 @@ export class GiftdisplayService {
       .get<any[]>(this.webapiurl + '/GiftCategory/random')
       .pipe(catchError(this.handleError));
   }
+  
+  //Update quantity in inventory after purchase
+  updateQuantityValueAfterPurchase(giftObj:any,giftid:number) {
+
+    return this._client.put(`${this.webapiurl}/Gifts/${giftid}`,giftObj).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   //Error Handling
   handleError(error: HttpErrorResponse) {
