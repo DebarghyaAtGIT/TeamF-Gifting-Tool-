@@ -115,13 +115,36 @@ namespace GiftingTool.Models
                 throw ex;
             }
         }
+        
+        //Update inventory status 
+        public int UpdateQuantity(Gifts gifts,int giftid)
+        {
+            int i = 0;
+            try
+            {
+                var element = _dbcontext.Gifts.Where(x => x.PkGiftId == giftid).FirstOrDefault();
+                if (element != null)
+                {
+                    element.GiftQuantity -= gifts.GiftQuantity;
+                    _dbcontext.SaveChanges();
+                    i = 1;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return i;
+        }
+
 
         public int Update(int id)
         {
             return 0;
         }
 
-      
+        
         public List<Gifts> serachByGift(string giftName)
         {
             try
