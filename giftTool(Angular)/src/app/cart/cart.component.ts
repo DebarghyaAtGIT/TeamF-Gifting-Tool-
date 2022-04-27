@@ -16,8 +16,9 @@ export class CartComponent implements OnInit {
   addressForm:FormGroup;
   pinCodeNotFound:boolean = false;
   isCartEmpty:boolean = true;
+
+
   deliverablePincode:boolean = false;
-  
   constructor(private router:Router,private _snackBar:MatSnackBar,private _addressService:AddressService) {
     this.addressForm = new FormGroup({
       pincode: new FormControl("", [Validators.required,Validators.pattern("^[0-9]*$")])
@@ -36,7 +37,7 @@ export class CartComponent implements OnInit {
        this.items = this.items.filter(x=>x.userId == Number(localStorage.getItem('loggedUserId')));
     }
     if(this.items.length>0) {
-       this.showOutOfStock();
+       console.log(this.items);
        this.calculateTotalCost();
        this.isCartEmpty = false;
     }
@@ -44,24 +45,6 @@ export class CartComponent implements OnInit {
       this.isCartEmpty = true;
     }
   }
-  
-  //Checking if the items in cart are out of stock
-  public showOutOfStock():void {
-    var cartData:any[] = [];
-    this.items.forEach(element => {
-      let index = this.items.indexOf(element);
-      this._giftservice.showSpecificGift(element.giftId).subscribe( data =>{
-        var temp = JSON.parse(JSON.stringify(data));
-        var outofStock = false;
-        if(temp[0].giftQuantity<30) {
-          outofStock = true;
-        }
-        this.items[index] = {...element,outofStock};
-          cartData = [...cartData,this.items[index]];
-          sessionStorage.setItem('cartItems',JSON.stringify(cartData));
-      });
-    });
-   }
 
   //Calculate Total Cost of Cart
   public calculateTotalCost():void {
@@ -85,32 +68,18 @@ export class CartComponent implements OnInit {
   }
 
 
-  //Validating pincode and checking if the cart items are purchaseable.
+  //Validating pincode
   public onSubmit():void {
-    
-    let cartitems:any[] = JSON.parse(sessionStorage.getItem('cartItems') || "");
-    let isPurchaseable = true;
-    cartitems.forEach(element => {
-      if(element.outofStock) {
-        isPurchaseable = false;
-        return;
-      }
-    });
 
     if(!this.isCartEmpty) {
-      if(isPurchaseable) {
-        if(this.addressForm.valid) {
-          this._addressService.get(this.addressForm.controls['pincode'].value)
-          .subscribe((data:any[])=> {
-            this.storePincodeFunction(data);
-          });
-        }
-        else {
-          this.openSnackBar('Pincode cannot be null or any alphabet ',"OK")
-        }
+      if(this.addressForm.valid) {
+        this._addressService.get(this.addressForm.controls['pincode'].value)
+        .subscribe((data:any[])=> {
+          this.storePincodeFunction(data);
+        });
       }
       else {
-          this.openSnackBar('Pincode cannot be null or any alphabet ',"OK")
+        this.openSnackBar('Pincode cannot be null or any alphabet ',"OK")
       }
     }
     else {
