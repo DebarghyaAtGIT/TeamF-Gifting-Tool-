@@ -50,7 +50,8 @@ namespace GiftingTool.Controllers
             GiftsRepo temp = new GiftsRepo();
             return temp.serachByGift(giftname);
         }
-
+         
+        //show more product based on the category selected 
         [HttpGet("otherproducts/{giftid}")]
         public List<Object> getOtherProducts(string giftid)
         {
@@ -66,6 +67,22 @@ namespace GiftingTool.Controllers
                 return null;
             }
           
+        }
+        
+        //Update Inventory Status
+        [HttpPut("{giftid}")]
+        public Gifts updateQuantity(Gifts gifts,string giftid)
+        {
+            GiftsRepo gr = new GiftsRepo();
+            int i = gr.UpdateQuantity(gifts, Convert.ToInt32(giftid));
+            if(i==1)
+            {
+                return _repo.GetById(giftid);
+            }
+            else
+            {
+                return null;
+            }
         }
 
 
