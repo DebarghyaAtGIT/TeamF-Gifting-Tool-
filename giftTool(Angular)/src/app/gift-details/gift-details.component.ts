@@ -36,6 +36,7 @@ export class GiftDetailsComponent implements OnInit {
   productCost:string = "";
   productCategory:string = "";
   moreproducts:any = null;
+  quantityAvailable:number = 0;
 
 
 
@@ -56,6 +57,7 @@ export class GiftDetailsComponent implements OnInit {
       this.productName = temp[0].giftName;
       this.productCost = temp[0].price;
       this.productCategory = temp[0].categoryName;
+      this.quantityAvailable = temp[0].giftQuantity;
       sessionStorage.setItem('GiftWithSpecificId',JSON.stringify(data));
       this.GiftWithSpecificId = JSON.parse(Object(sessionStorage.getItem('GiftWithSpecificId')));;
       this.giftImage = this.GiftWithSpecificId[0].giftImage
@@ -75,17 +77,23 @@ public openSnackBar(message: string, action: string):void {
 }
 
 
-//Validating Pincode
+  //Validating Pincode
   public onSubmit():void {
     if(localStorage.getItem('loggedUserId')) {
-      if(this.addressForm.valid) {
-        this._addressService.get(this.addressForm.controls['pincode'].value)
-        .subscribe((data:any[])=> {
-          this.storePincodeFunction(data);
-        });
+      if(this.quantityAvailable>30) {
+        if(this.addressForm.valid) {
+          this._addressService.get(this.addressForm.controls['pincode'].value)
+          .subscribe((data:any[])=> {
+            this.storePincodeFunction(data);
+          });
+        }
+        else {
+          this.openSnackBar('Enter pincode to proceed further',"OK");
+        }
       }
-      else {
-        this.openSnackBar('Enter pincode to proceed further',"OK");
+      else
+      {
+        this.openSnackBar('Item is already out of stock',"GOT IT");
       }
    }
    else {
