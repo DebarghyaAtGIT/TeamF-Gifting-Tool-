@@ -66,33 +66,33 @@ export class SinglePaymentComponent implements OnInit {
   }
 
   //Add order details to database
-  public addOrderDetails(data: any): void {
+  public addOrderDetails(data:any): void{
     var newdata = JSON.parse(JSON.stringify(data));
     var orderid = Number(newdata.pkOrderId);
     alert(orderid);
-    var orderDetailsEntry: any = [
-      {
+    var orderDetailsEntry:any = [{
         fkOrderId: Number(orderid),
-        fkGiftId: Number(window.sessionStorage.getItem('giftId')),
-        giftQuantity: 1,
+        fkGiftId: Number( window.sessionStorage.getItem("giftId")),
+        giftQuantity:1,
         orderDate: new Date(),
         fkGift: null,
-        fkOrder: null,
-      },
-    ];
-    this._userService.addEntry(orderDetailsEntry).subscribe((res) => {
-      console.log(res);
-    });
-    window.sessionStorage.removeItem('recipientName');
-    window.sessionStorage.removeItem('recipientPhoneno');
-    window.sessionStorage.removeItem('recipientEmail');
-    window.sessionStorage.removeItem('addressId');
-    window.sessionStorage.removeItem('giftPrice');
-    window.sessionStorage.removeItem('recipientAddress');
-    window.sessionStorage.removeItem('giftId');
-    this.openSnackBar('Thank You for shopping with us..', 'OK');
-    this.router.navigate(['home']);
-  }
+        fkOrder: null
+      }];
+      var quantityRemoved:any = { giftQuantity:1}
+      this._giftService.updateQuantityValueAfterPurchase(quantityRemoved,Number( window.sessionStorage.getItem("giftId")))
+      .subscribe(res=>{console.log(res)});
+      this._userService.addEntry(orderDetailsEntry).subscribe(res=>{console.log(res)});
+      window.sessionStorage.removeItem("recipientName");
+      window.sessionStorage.removeItem("recipientPhoneno");
+      window.sessionStorage.removeItem("recipientEmail");
+      window.sessionStorage.removeItem("addressId");
+      window.sessionStorage.removeItem("giftPrice");
+      window.sessionStorage.removeItem("recipientAddress");
+      window.sessionStorage.removeItem("giftId");
+      this.openSnackBar("Thank You for shopping with us..", "OK")
+      this.router.navigate(['home']);
+
+    }
 
   public openSnackBar(message: string, action: string): void {
     this._snackBar.open(message, action, {
