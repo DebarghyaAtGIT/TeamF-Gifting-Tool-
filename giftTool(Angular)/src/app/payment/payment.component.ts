@@ -72,24 +72,29 @@ export class PaymentComponent implements OnInit {
     var newdata = JSON.parse(JSON.stringify(data));
     var orderid = Number(newdata.pkOrderId);
     alert(orderid);
-    for(let i in this.cartItems){
+    for(let i in this.cartItems) {
 
-      var orderDetailsEntry:any = [{
-        fkOrderId: Number(orderid),
-        fkGiftId: Number(this.cartItems[i].giftId),
-        giftQuantity:Number(this.cartItems[i].quantityOfGifts),
-        orderDate: new Date(),
-        fkGift: null,
-        fkOrder: null }];
+        var orderDetailsEntry:any = [{
+          fkOrderId: Number(orderid),
+          fkGiftId: Number(this.cartItems[i].giftId),
+          giftQuantity:Number(this.cartItems[i].quantityOfGifts),
+          orderDate: new Date(),
+          fkGift: null,
+          fkOrder: null }];
+
+        var quantityRemoved:any = { giftQuantity:Number(this.cartItems[i].quantityOfGifts)}
+
         this._userService.addEntry(orderDetailsEntry).subscribe(res=>{console.log(res)})
+        this._giftService.updateQuantityValueAfterPurchase(quantityRemoved,Number(this.cartItems[i].giftId))
+        .subscribe(res=>{console.log(res)});
         this.items = JSON.parse(localStorage.getItem('gifts')||"");
-        this.items.forEach((element,index) => {
-            if(element.userId == Number(localStorage.getItem('loggedUserId'))) {
-              this.items.splice(index,1);
-            }
-        });
-        localStorage.setItem('gifts',JSON.stringify(this.items));
-        window.sessionStorage.removeItem("recipientName");
+      this.items.forEach((element,index) => {
+          if(element.userId == Number(localStorage.getItem('loggedUserId'))) {
+            this.items.splice(index,1);
+          }
+      });
+      localStorage.setItem('gifts',JSON.stringify(this.items));
+      window.sessionStorage.removeItem("recipientName");
       window.sessionStorage.removeItem("recipientPhoneno");
       window.sessionStorage.removeItem("recipientEmail");
       window.sessionStorage.removeItem("addressId");
@@ -99,6 +104,8 @@ export class PaymentComponent implements OnInit {
       this.openSnackBar("Thank You for shopping with us..", "OK")
       this.router.navigate(['home']);
     }
+
+
   }
 
   public openSnackBar(message: string, action: string):void {
